@@ -5,7 +5,7 @@ A Ruby image with most common build dependencies installed to compile native GEM
 #### Image Name
 
 ````
-cloudgear/ruby:2.2
+cloudgear/ruby:2.3
 ````
 
 Other variations and version are described below.
@@ -13,8 +13,8 @@ Other variations and version are described below.
 #### Quick Usage
 
 ````
-$ docker run -it cloudgear/ruby:2.2 ruby -e 'puts "Hello small Ruby image with version #{RUBY_VERSION}"'
-Hello small Ruby image with version 2.2.0
+$ docker run -it cloudgear/ruby:2.3 ruby -e 'puts "Hello small Ruby image with version #{RUBY_VERSION}"'
+Hello small Ruby image with version 2.3.0
 ````
 
 ## Image Size
@@ -31,10 +31,10 @@ Similar images are more than double the size of this image. We have researched p
 
 ````
 Semi-official Ruby image
-ruby:2.2.0                  774.7 MB
+ruby:2.3.0                  774.7 MB
 
 Without build dependencies (native GEMs can't be compiled)
-ruby:2.2.0-slim             299.3 MB
+ruby:2.3.0-slim             299.3 MB
 
 Atlas Health (only minimal build dependencies, libcurl & libxml)
 atlashealth/ruby            347.2 MB
@@ -51,7 +51,7 @@ The image comes in multiple variations and versions. For detailed information ch
 
 The image includes the specified Ruby version, the latest Rubygems and Bundler packages and common build dependencies. It is based on the `cloudgear/build-deps` image, [check it out](https://github.com/cloudgear-images/build-deps) for more details.
 
-**Image name:** only version tags without any suffix, e.g. `cloudgear/ruby:2.2`
+**Image name:** only version tags without any suffix, e.g. `cloudgear/ruby:2.3`
 
 #### Tested GEMs
 
@@ -72,13 +72,13 @@ Please help us to test and support other GEMs with native extensions and report 
 
 The same image as the full image but additional Dockerfile `ONBUILD` instructions allow the installation of your Bundler based Ruby application with a simple and empty Dockerfile.
 
-**Image name:** tags with suffix `-onbuild`, e.g. `cloudgear/ruby:2.2-onbuild`
+**Image name:** tags with suffix `-onbuild`, e.g. `cloudgear/ruby:2.3-onbuild`
 
 ### Minimal Version
 
 A minimal Ruby image is provided too. It includes Ruby, the latest Rubygems and Bundler packages and only minimal build dependencies. Most GEMs with native extensions fail to install. But as long as you don't depend on such GEMs you are fine with the `minimal` version. Additionally you can add required dependencies yourself to keep your application images as small as possible.
 
-**Image name:** tags with suffix `-minimal`, e.g. `cloudgear/ruby:2.2-minimal`
+**Image name:** tags with suffix `-minimal`, e.g. `cloudgear/ruby:2.3-minimal`
 
 
 ## Usage
@@ -88,13 +88,13 @@ A minimal Ruby image is provided too. It includes Ruby, the latest Rubygems and 
 **Run IRB**
 
 ````
-$ docker run -it cloudgear/ruby:2.2 irb
+$ docker run -it cloudgear/ruby:2.3 irb
 ````
 
 **Run a single Ruby command**
 
 ````
-$ docker run cloudgear/ruby:2.2 ruby -e 'puts "A simple Ruby demo"'
+$ docker run cloudgear/ruby:2.3 ruby -e 'puts "A simple Ruby demo"'
 A simple Ruby demo
 ````
 
@@ -103,7 +103,7 @@ A simple Ruby demo
 To build a custom image with some GEMs installed, create a Dockerfile:
 
 ````
-FROM cloudgear/ruby:2.2
+FROM cloudgear/ruby:2.3
 
 RUN gem install haml
 
@@ -115,7 +115,7 @@ ENTRYPOINT ["haml"]
 The onbuild image allows you to dockerize your Ruby applications with very little effort. You only need to create a Dockerfile within the root of your application with the following content:
 
 ````
-FROM cloudgear/ruby:2.2-onbuild
+FROM cloudgear/ruby:2.3-onbuild
 CMD ["./your-script.rb"]
 ````
 
@@ -133,7 +133,7 @@ docker run -it my-ruby-app
 Running an IRB session or Ruby commands is the same as with the full image. If you wish to create an optimized Ruby image with specific build dependencies tailored for your application, you can create a Dockerfile. E.g. installing only the MySQL dependency:
 
 ````
-FROM cloudgear/ruby:2.2-minimal
+FROM cloudgear/ruby:2.3-minimal
 
         
 RUN apt-get update -q && apt-get install -yq --no-install-recommends \
@@ -154,16 +154,16 @@ CloudGear provides and optimized image for Rails based on this Ruby image. Pleas
 
 ## Supported Tags
 
-The image comes with multiple variations and supports the latest Ruby versions 2.1 and 2.2.
+The image comes with multiple variations and supports the latest Ruby versions 2.1 and 2.3.
 
 All variations and versions
 
 * `cloudgear/ruby:2.1`
 * `cloudgear/ruby:2.1-onbuild`
 * `cloudgear/ruby:2.1-minimal`
-* `cloudgear/ruby:2.2`
-* `cloudgear/ruby:2.2-onbuild`
-* `cloudgear/ruby:2.2-minimal`
+* `cloudgear/ruby:2.3`
+* `cloudgear/ruby:2.3-onbuild`
+* `cloudgear/ruby:2.3-minimal`
 
 
 ## Contributing
