@@ -2,6 +2,16 @@
 
 A Ruby image with most common build dependencies installed to compile native GEMs. It is only 329.7 MB  and is optimized for minimum overhead, while including all required dependencies for common GEMs like nokogiri, curb or mysql2. The base image is a minimal Ubuntu 14.04 which makes it easy and flexible to install more exotic Ruby apps.
 
+## Fork of cloudgear/ruby:2.2
+
+Change it so it will build ruby 2.3.3.  To build the docker image:
+
+```
+$ docker build -t tongueroo/ruby:2.3.3 .
+```
+
+The rest of the notes here are from the original cloudgear README.
+
 #### Image Name
 
 ````
@@ -135,7 +145,7 @@ Running an IRB session or Ruby commands is the same as with the full image. If y
 ````
 FROM cloudgear/ruby:2.3-minimal
 
-        
+
 RUN apt-get update -q && apt-get install -yq --no-install-recommends \
         libmysqlclient-dev && \
 
