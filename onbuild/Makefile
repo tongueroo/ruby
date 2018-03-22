@@ -1,4 +1,4 @@
 all: build
 
-build: 
-	docker build -t cloudgear/ruby:2.3-onbuild .
+build:
+	docker build -t cloudgear/ruby:2.5-onbuild .
